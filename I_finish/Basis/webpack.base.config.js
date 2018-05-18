@@ -10,7 +10,7 @@ const ExtractSass = new ExtractTextPlugin({
 })
 
 export default new Config().merge({
-  entry: './App.js',
+  entry: ["babel-polyfill",'./App.js'],
   output: {
     path: __dirname + '/public',
   },

@@ -4,8 +4,9 @@
   "description": "стартовый проект",
   "main": "App.js",
   "scripts": {
-    "builddev": "_build_dev.bat",
-    "buildprod": "_build_prod.bat",
+    "builddev": "cross-env NODE_ENV=development .//node_modules//.bin//webpack-dev-server --progress --colors --history-api-fallback",
+    "buildprod": "cross-env NODE_ENV=production .//node_modules//.bin//webpack --progress",
+    "browse": ".\\node_modules\\.bin\\lite-server",
     "test": "jest"
   },
   "author": "",
@@ -18,6 +19,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.1.5",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
