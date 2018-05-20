@@ -12,6 +12,7 @@ module.exports = {
         path: __dirname, // путь к каталогу выходных файлов
         filename: "bundle.js"  // название создаваемого файла 
     }, 
+    devtool:'source-map',
     module:{ 
         rules:[
             { 

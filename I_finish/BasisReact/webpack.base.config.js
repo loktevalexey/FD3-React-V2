@@ -8,12 +8,17 @@ const ExtractSass = new ExtractTextPlugin({
   filename: "[name].[contenthash].css",
   disable: process.env.NODE_ENV === "development"
 })
+const extractLess = new ExtractTextPlugin({
+  filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
+});
 
 export default new Config().merge({
   entry: ["babel-polyfill",'./App.js'],
   output: {
     path: __dirname + '/public',
   },
+  devtool:'source-map',
   module: {
         rules:[
             { 
@@ -38,6 +43,18 @@ export default new Config().merge({
                 }],
                 fallback: "style-loader"
               })
+            },
+            {
+                test: /\.less$/,
+                use: extractLess.extract({
+                    use: [
+                        {
+                            loader: "css-loader"
+                        }, {
+                            loader: "less-loader"
+                        }
+                    ]
+                })
             },
         ] 
   },
