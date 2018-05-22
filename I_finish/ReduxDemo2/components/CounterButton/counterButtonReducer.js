@@ -1,6 +1,4 @@
-﻿"use strict";
-
-import { COUNTER_BUTTON_CREATE, COUNTER_BUTTON_ADD } from './counterButtonAC';
+﻿import { COUNTER_BUTTON_CREATE, COUNTER_BUTTON_ADD } from './counterButtonAC';
 
 const initState={
 

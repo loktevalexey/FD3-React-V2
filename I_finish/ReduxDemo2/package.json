@@ -1,7 +1,7 @@
 {
-  "name": "reduxdemo",
+  "name": "reduxdemo2",
   "version": "1.0.0",
-  "description": "Redux demo",
+  "description": "Redux demo 2",
   "main": "App.js",
   "scripts": {
     "build": ".\\node_modules\\.bin\\webpack",

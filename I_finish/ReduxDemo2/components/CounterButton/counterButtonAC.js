@@ -1,6 +1,4 @@
-﻿"use strict";
-
-const COUNTER_BUTTON_CREATE='COUNTER_BUTTON_CREATE';
+﻿const COUNTER_BUTTON_CREATE='COUNTER_BUTTON_CREATE';
 const COUNTER_BUTTON_ADD='COUNTER_BUTTON_ADD';
 
 const counterButton_create=function(counterid) {
