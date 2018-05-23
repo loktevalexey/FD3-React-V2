@@ -2,7 +2,7 @@
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import combinedReducer from './reducers.js';
+import combinedReducer from '../redux/reducers.js';
 import CounterButton from '../components/CounterButton/CounterButton';
 
 let store=createStore(combinedReducer);

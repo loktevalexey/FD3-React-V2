@@ -2,15 +2,15 @@
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import { counterButton_create, counterButton_add } from './counterButtonAC';
+import { counterButton_create, counterButton_add } from '../../redux/countersAC';
 
 import './CounterButton.css';
 
-class intCounterButton extends React.PureComponent {
+class CounterButton extends React.PureComponent {
 
   static propTypes = {
     counterid: PropTypes.number.isRequired, // передано из родительского компонента
-    counterButton: PropTypes.object.isRequired, // передано из Redux
+    counters: PropTypes.object.isRequired, // передано из Redux
   };
 
   componentWillMount() {
@@ -29,8 +29,8 @@ class intCounterButton extends React.PureComponent {
   
   render() {
 
-    // получим значение именно этого счётчика
-    let counterValue=this.props.counterButton.counters[this.props.counterid];
+    // получим значение нужного счётчика
+    let counterValue=this.props.counters.cnts[this.props.counterid];
 
     return (
       <div className="CounterButton">
@@ -46,12 +46,10 @@ class intCounterButton extends React.PureComponent {
 
 const mapStateToProps = function (state) {
   return {
-    // раздел Redux state под именем counterButton будет доступен
-    // данному компоненту как this.props.counterButton
-    counterButton: state.counterButton,
+    // весь раздел Redux state под именем counters будет доступен
+    // данному компоненту как this.props.counters
+    counters: state.counters,
   };
 };
 
-const CounterButton = connect(mapStateToProps)(intCounterButton);
-
-export default CounterButton;
+export default connect(mapStateToProps)(CounterButton);

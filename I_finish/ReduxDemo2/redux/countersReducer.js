@@ -1,16 +1,16 @@
-﻿import { COUNTER_BUTTON_CREATE, COUNTER_BUTTON_ADD } from './counterButtonAC';
+﻿import { COUNTER_BUTTON_CREATE, COUNTER_BUTTON_ADD } from './countersAC';
 
 const initState={
 
   // ключ - идентификатор счётчика, значение - число нажатий
-  counters: {},
+  cnts: {},
 
 }
 
 // в редьюсере state - это не весь state Redux, а только тот раздел state,
 // за который отвечает данный редьюсер
 
-function counterButtonReducer(state=initState,action) {
+function countersReducer(state=initState,action) {
   switch (action.type) {
 
     case COUNTER_BUTTON_CREATE: {
@@ -19,7 +19,7 @@ function counterButtonReducer(state=initState,action) {
       console.log('action:',action);
       console.log('state до обработки редьюсером:',state);
       let newState={...state,
-        counters:{...state.counters,
+        cnts:{...state.cnts,
           [action.counterid]:0
         }
       };
@@ -31,8 +31,8 @@ function counterButtonReducer(state=initState,action) {
       console.log('action:',action);
       console.log('state до обработки редьюсером:',state);
       let newState={...state,
-        counters:{...state.counters,
-          [action.counterid]:state.counters[action.counterid]+action.addvalue
+        cnts:{...state.cnts,
+          [action.counterid]:state.cnts[action.counterid]+action.addvalue
         }
       };
       console.log('state после обработки редьюсером:',newState);
@@ -44,4 +44,4 @@ function counterButtonReducer(state=initState,action) {
   }
 }
 
-export default counterButtonReducer;
+export default countersReducer;
